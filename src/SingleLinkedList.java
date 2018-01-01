@@ -16,7 +16,6 @@ public class SingleLinkedList {
         int s = 0;
         if (startNode != null) {
             s = 1;
-            SingleNode n = startNode;
             SingleNode current = startNode;
             while (current != null) {
                 current = SingleNode.next;
