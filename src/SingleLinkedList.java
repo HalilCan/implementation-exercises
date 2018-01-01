@@ -67,4 +67,19 @@ public class SingleLinkedList {
             return null;
         }
     }
+
+    public SingleNode get (SingleNode n) {
+        SingleNode currentNode = startNode;
+        SingleNode penultimateNode = null;
+
+        while (currentNode != n || currentNode != null) {
+            penultimateNode = currentNode;
+            currentNode = currentNode.next;
+        };
+        if(currentNode == n) {
+            return currentNode;
+        } else {
+            return null;
+        }
+    }
 }
