@@ -51,6 +51,11 @@ public class SingleLinkedList {
         return temp;
     }
 
+    public void unshift (SingleNode n) {
+        n.next = startNode;
+        startNode = n;
+    }
+
     public SingleNode remove (SingleNode n) {
         SingleNode currentNode = startNode;
         SingleNode penultimateNode = null;
