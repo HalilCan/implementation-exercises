@@ -8,7 +8,7 @@ public class SingleLinkedList {
     }
 
     public void add (SingleNode n) {
-        finalNode.next = n;
+        finalNode.setNext(n);
         finalNode = n;
     }
 
@@ -33,12 +33,12 @@ public class SingleLinkedList {
 
         while (currentNode != finalNode || currentNode != null) {
             penultimateNode = currentNode;
-            currentNode = currentNode.next;
+            currentNode = currentNode.getNext();
         };
         if(currentNode == finalNode) {
             SingleNode tempNode = currentNode.copy();
             finalNode = penultimateNode;
-            finalNode.next = null;
+            finalNode.setNext(null);
             return tempNode;
         } else {
             return null;
@@ -47,13 +47,25 @@ public class SingleLinkedList {
 
     public SingleNode shift () {
         SingleNode temp = startNode;
-        startNode = startNode.next;
+        startNode = startNode.getNext();
         return temp;
     }
 
     public void unshift (SingleNode n) {
-        n.next = startNode;
+        n.setNext(startNode);
         startNode = n;
+    }
+
+    public void addAfter (SingleNode reference, SingleNode n) {
+        SingleNode temp = startNode;
+        while (temp != reference || temp != null) {
+            temp = temp.getNext();
+        }
+        if (temp != null) {
+            n.setNext(temp.getNext());
+            temp.setNext(n);
+        }
+
     }
 
     public SingleNode remove (SingleNode n) {
@@ -62,11 +74,11 @@ public class SingleLinkedList {
 
         while (currentNode != n || currentNode != null) {
             penultimateNode = currentNode;
-            currentNode = currentNode.next;
+            currentNode = currentNode.getNext();
         };
         if(currentNode == n) {
-            penultimateNode.next = currentNode;
-            currentNode.next = null;
+            penultimateNode.setNext(currentNode);
+            currentNode.setNext(null);
             return currentNode;
         } else {
             return null;
@@ -75,11 +87,9 @@ public class SingleLinkedList {
 
     public SingleNode get (SingleNode n) {
         SingleNode currentNode = startNode;
-        SingleNode penultimateNode = null;
 
         while (currentNode != n || currentNode != null) {
-            penultimateNode = currentNode;
-            currentNode = currentNode.next;
+            currentNode = currentNode.getNext();
         };
         if(currentNode == n) {
             return currentNode;

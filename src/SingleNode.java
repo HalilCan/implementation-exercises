@@ -12,4 +12,12 @@ public class SingleNode {
         cpy.next = next;
         return cpy;
     }
+
+    public SingleNode getNext() {
+        return next;
+    }
+
+    public void setNext(SingleNode n) {
+        next = n;
+    }
 }
