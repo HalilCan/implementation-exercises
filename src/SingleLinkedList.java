@@ -98,7 +98,7 @@ public class SingleLinkedList {
             currentNode = currentNode.getNext();
         };
         if(currentNode == n) {
-            penultimateNode.setNext(currentNode);
+            penultimateNode.setNext(currentNode.getNext());
             currentNode.setNext(null);
             return currentNode;
         } else {
