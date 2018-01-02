@@ -27,6 +27,27 @@ public class SingleLinkedList {
         }
     }
 
+    public void insertAtIndex (SingleNode n, int index) {
+        if (index == 0) {
+            n.setNext(startNode);
+            startNode = n;
+            // passed by ref or value?
+        } else {
+            int i = 1;
+            SingleNode temp = startNode;
+            while (i < index && temp != null) {
+                temp = temp.getNext();
+                i++;
+            }
+            if (temp == null) {
+
+            } else {
+                n.setNext(temp.getNext());
+                temp.setNext(n);
+            }
+        }
+    }
+
     public SingleNode pop () {
         SingleNode currentNode = startNode;
         SingleNode penultimateNode = null;
