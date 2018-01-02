@@ -98,9 +98,19 @@ public class SingleLinkedList {
             currentNode = currentNode.getNext();
         };
         if(currentNode == n) {
-            penultimateNode.setNext(currentNode.getNext());
-            currentNode.setNext(null);
-            return currentNode;
+            if (penultimateNode != null && currentNode.getNext() != null) {
+                penultimateNode.setNext(currentNode.getNext());
+                currentNode.setNext(null);
+                return currentNode;
+            } else if (penultimateNode == null && currentNode.getNext() != null) {
+                startNode = currentNode.getNext();
+            } else if (penultimateNode != null && currentNode.getNext() == null) {
+                finalNode = penultimateNode;
+                penultimateNode.setNext(null);
+            } else if (penultimateNode == null && currentNode.getNext() == null) {
+                startNode = null;
+                finalNode = null;
+            }
         } else {
             return null;
         }
